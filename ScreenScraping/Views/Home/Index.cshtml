@@ -3,12 +3,14 @@
 @{
     Layout = null;
 }
-@using (Html.BeginForm())
+@using (Html.BeginForm("Index", "Home", FormMethod.Post))
 {
-   @Html.ValidationSummary()
-   @Html.TextBoxFor(model => model.ORGNumber)
-    
-    <input type="submit" value="Find"/>
+    @Html.ValidationSummary()
+    @Html.AntiForgeryToken()
+
+    @Html.TextBoxFor(model => model.ORGNumber)
+
+    <input type="submit" value="Find" />
 }
 
 

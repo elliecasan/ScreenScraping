@@ -9,7 +9,9 @@ namespace ScreenScraping.Models.Home
     public class IndexViewModel
     {
         [Required(ErrorMessage = "Enter correct value")]
-        public string ORGNumber{ get; set; }
+
+        public long ORGNumber{ get; set; }
+
         public string CompanyName { get; set; }
     }
 }

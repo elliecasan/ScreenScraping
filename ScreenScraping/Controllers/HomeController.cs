@@ -7,13 +7,19 @@ using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
 using ScreenScraping.Models.Home;
+using ScreenScrapingLib.Services;
+
 
 namespace ScreenScraping.Controllers
 {
     public class HomeController : Controller
     {
-        //
-        // GET: /Home/
+        private readonly IScreenScraperService _screenScraperService;
+
+        public HomeController(IScreenScraperService ScreenScraperService)
+        {
+            _screenScraperService = ScreenScraperService;
+        }
 
         public ActionResult Index(string message)
         {
@@ -26,25 +32,13 @@ namespace ScreenScraping.Controllers
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult Index(IndexViewModel model)
         {
             if (!ModelState.IsValid)
                 return View(model);
 
-            
-            string url = "http://www.allabolag.se/" + model.ORGNumber;
-            WebRequest request = WebRequest.Create(url);
-            WebResponse response = request.GetResponse();
-            Stream stream = response.GetResponseStream();
-            StreamReader reader = new StreamReader(stream);
-            string result = reader.ReadToEnd();
-            stream.Dispose();
-            reader.Dispose();
-
-            int firstChar = result.IndexOf("reportTitleBig")+16;
-            string Name = result.Substring(firstChar, 100);
-            int lastChar = Name.IndexOf("</span>");
-            Name = Name.Substring(0, lastChar);
+            string Name = _screenScraperService.GetCompanyNameByOrgNr(model.ORGNumber);
 
             return RedirectToAction("Index", "Home", new {message = Name});
         }
