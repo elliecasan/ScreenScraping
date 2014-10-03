@@ -1,0 +1,89 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<useCaseModelRoot xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" xmlns:dm9="http://schemas.microsoft.com/dsltools/SimpleShapesModel" dslVersion="1.0.0.0" Id="8218053e-d1cd-41dd-a5bc-87637ff2f507" name="ScreenScrapingModel" linkedPackageId="61735d2d-91c3-4633-b2c8-ee2713882a38" xmlns="http://schemas.microsoft.com/dsltools/UseCaseModel">
+  <profileInstances>
+    <packageHasProfileInstances Id="43a195b1-c3d4-4f84-95f3-9cfb35b8fb4f">
+      <profileInstance Id="662fcde5-1314-465d-9563-bb40a117fc24" name="StandardProfileL2">
+        <elementDefinition Id="e34d544e-0fea-4ed6-ac5e-1b74119ac791" />
+      </profileInstance>
+      <elementDefinition Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b" />
+    </packageHasProfileInstances>
+    <packageHasProfileInstances Id="dd9b4299-c82b-4e91-816d-824024d9a4b4">
+      <profileInstance Id="f3243774-8759-4201-b53c-facf9140091b" name="StandardProfileL3">
+        <elementDefinition Id="532ea607-fb19-44b8-8502-3351b05452be" />
+      </profileInstance>
+      <elementDefinition Id="29349502-908c-4fda-9054-c48619c59ed0" />
+    </packageHasProfileInstances>
+  </profileInstances>
+  <packagedElements>
+    <useCaseModelRootHasTypes>
+      <subsystem Id="9391fa32-ceed-44cb-84c0-da32e4add739" name="System" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="301a438e-d736-4475-837d-eecc58be17a9" />
+      </subsystem>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <actor Id="47da9e73-7f01-4e43-9654-54ee6ce02c7e" name="User" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="8c9691d9-0470-48f6-bd11-be7c2d72ba1c" />
+        <targetEnds>
+          <association Id="177b7da4-9b81-4a5b-bc02-e40a38ea0d0d" isDerived="false" sourceEndRoleName="User" targetEndRoleName="Receiev company data" isLeaf="false" isAbstract="false">
+            <useCaseMoniker Id="3709b5e0-60bd-4297-82b5-95d97055d685" LastKnownName="Receiev company data" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="c21bd0c5-d7e6-4e4c-b125-1ca9bfe08fef" name="User" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="66ac7f03-dbe9-4551-b1d8-003eb9a2f1c3" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="4625c4ea-4659-448c-a125-bba4420004ec" name="Receiev company data" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="f3bc03ab-a0d0-4865-8749-542f0ad79620" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="448bcf2e-9f17-41e0-826e-15b2e4cb72a2" />
+          </association>
+        </targetEnds>
+      </actor>
+    </useCaseModelRootHasTypes>
+    <packageHasNamedElement>
+      <useCase Id="3709b5e0-60bd-4297-82b5-95d97055d685" name="Receiev company data" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="c8e1d538-7bba-4baf-a0f5-f35750162255" />
+        <subjects>
+          <subsystemMoniker Id="9391fa32-ceed-44cb-84c0-da32e4add739" LastKnownName="System" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+    <useCaseModelRootHasTypes>
+      <actor Id="e213c3c3-2713-4789-874e-a6f183a81d87" name="Companys" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="eb791c1c-a961-4e9e-ba29-cbd93dafaf42" />
+        <targetEnds>
+          <association Id="4a764356-d6ff-49be-8c47-da9389b0d2d5" isDerived="false" sourceEndRoleName="Companys" targetEndRoleName="UseCase1" isLeaf="false" isAbstract="false">
+            <useCaseMoniker Id="e8bb5e1d-cd12-4c28-b2fa-78829066aab4" LastKnownName="Share company data" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="855516b2-6dcb-473e-ba76-1790d593d42b" name="Companys" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="3fa0db2d-7c4a-4b91-b09b-f4f8b936af03" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="631997e7-e9ca-4241-bd5e-bf365ade5f9a" name="UseCase1" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="fde73745-146a-48fb-8ae7-bd4f3f0cb248" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="59a937c9-7f6e-4413-8408-338eea183f65" />
+          </association>
+        </targetEnds>
+      </actor>
+    </useCaseModelRootHasTypes>
+    <packageHasNamedElement>
+      <useCase Id="e8bb5e1d-cd12-4c28-b2fa-78829066aab4" name="Share company data" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="9cebe767-a504-4e50-8cc0-68dcf9def71b" />
+        <subjects>
+          <subsystemMoniker Id="9391fa32-ceed-44cb-84c0-da32e4add739" LastKnownName="System" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+  </packagedElements>
+  <package Id="61735d2d-91c3-4633-b2c8-ee2713882a38" name="ScreenScrapingModel">
+    <elementDefinition Id="2b2ef217-ac58-4939-a1ad-6479e9b5652e" />
+  </package>
+</useCaseModelRoot>

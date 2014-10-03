@@ -5,7 +5,7 @@ VisualStudioVersion = 12.0.21005.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ScreenScraping", "ScreenScraping\ScreenScraping.csproj", "{D1FE068D-C895-4B3A-B244-E0E55DBEB8F1}"
 EndProject
-Project("{F088123C-0E9E-452A-89E6-6BA2F21D5CAC}") = "ScreenScrapingModel", "..\ScreenScrapingModel\ScreenScrapingModel.modelproj", "{32F47D89-6440-47F3-AD60-07A253D2CAB2}"
+Project("{F088123C-0E9E-452A-89E6-6BA2F21D5CAC}") = "ScreenScrapingModel", "ScreenScraping\ScreenScrapingModel\ScreenScrapingModel.modelproj", "{F9874A1D-899C-4DE5-A912-5C54EC5F002B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,10 +17,10 @@ Global
 		{D1FE068D-C895-4B3A-B244-E0E55DBEB8F1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D1FE068D-C895-4B3A-B244-E0E55DBEB8F1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D1FE068D-C895-4B3A-B244-E0E55DBEB8F1}.Release|Any CPU.Build.0 = Release|Any CPU
-		{32F47D89-6440-47F3-AD60-07A253D2CAB2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{32F47D89-6440-47F3-AD60-07A253D2CAB2}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{32F47D89-6440-47F3-AD60-07A253D2CAB2}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{32F47D89-6440-47F3-AD60-07A253D2CAB2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F9874A1D-899C-4DE5-A912-5C54EC5F002B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F9874A1D-899C-4DE5-A912-5C54EC5F002B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F9874A1D-899C-4DE5-A912-5C54EC5F002B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F9874A1D-899C-4DE5-A912-5C54EC5F002B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
