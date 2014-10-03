@@ -14,11 +14,11 @@ namespace ScreenScraping.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly IScreenScraperService _screenScraperService;
+        private readonly IScreenScraperFactory _screenScraperFactory;
 
-        public HomeController(IScreenScraperService ScreenScraperService)
+        public HomeController(IScreenScraperFactory ScreenScraperFactory)
         {
-            _screenScraperService = ScreenScraperService;
+            _screenScraperFactory = ScreenScraperFactory;
         }
 
         public ActionResult Index(string message)
@@ -38,10 +38,13 @@ namespace ScreenScraping.Controllers
             if (!ModelState.IsValid)
                 return View(model);
 
-            string Name = _screenScraperService.GetCompanyNameByOrgNr(model.ORGNumber);
+            IScreenScraperService service = _screenScraperFactory.CreateFactory(model.SelectedListItem);
 
-            return RedirectToAction("Index", "Home", new {message = Name});
+            var name = service.GetCompanyNameByOrgNr(model.ORGNumber);
+
+            return RedirectToAction("Index", "Home", new {message = name});
         }
 
+        
     }
 }

@@ -8,6 +8,8 @@
     @Html.ValidationSummary()
     @Html.AntiForgeryToken()
 
+    @Html.LabelFor(m => m.SelectedListItem, "Select a value")
+    @Html.DropDownListFor(m => m.SelectedListItem, Model.DropDownItems)
     @Html.TextBoxFor(model => model.ORGNumber)
 
     <input type="submit" value="Find" />

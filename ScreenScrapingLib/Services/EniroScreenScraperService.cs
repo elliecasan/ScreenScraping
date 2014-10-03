@@ -5,15 +5,15 @@ using System.Linq;
 using System.Net;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web;
 
 namespace ScreenScrapingLib.Services
 {
-    public class ScreenScraperService : IScreenScraperService
+    public class EniroScreenScraperService : IScreenScraperService
     {
         public string GetCompanyNameByOrgNr(long orgNr)
         {
-
-            string url = "http://www.allabolag.se/" + orgNr;
+            string url = "http://gulasidorna.eniro.se/hitta:" + orgNr;
             WebRequest request = WebRequest.Create(url);
             WebResponse response = request.GetResponse();
             Stream stream = response.GetResponseStream();
@@ -22,12 +22,19 @@ namespace ScreenScrapingLib.Services
             stream.Dispose();
             reader.Dispose();
 
-            int firstChar = result.IndexOf("reportTitleBig") + 16;
-            string Name = result.Substring(firstChar, 100);
-            int lastChar = Name.IndexOf("</span>");
-            Name = Name.Substring(0, lastChar);
 
-            return Name;
+            int firstChar = result.IndexOf("name_click");
+
+            string name = result.Substring(firstChar);
+
+            firstChar = name.IndexOf("\">");
+
+            name = name.Substring(firstChar + 2);
+
+            int lastChar = name.IndexOf("</a>");
+            name = name.Substring(0, lastChar);
+
+            return name;
         }
     }
 }

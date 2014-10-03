@@ -14,7 +14,7 @@ namespace ScreenScraperTest
             long orgNr = 5565995239;
             string company = "Mattias Asplund Aktiebolag";
 
-            IScreenScraperService screenScraperService = new ScreenScraperService();
+            IScreenScraperService screenScraperService = new AllaBolagScreenScraperService();
 
             //ACT
             var result = screenScraperService.GetCompanyNameByOrgNr(orgNr);

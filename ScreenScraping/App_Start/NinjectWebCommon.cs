@@ -62,7 +62,7 @@ namespace ScreenScraping.App_Start
         /// <param name="kernel">The kernel.</param>
         private static void RegisterServices(IKernel kernel)
         {
-            kernel.Bind<IScreenScraperService>().To<ScreenScraperService>();
+            kernel.Bind<IScreenScraperFactory>().To<ScreenScraperFactory>();
         }        
     }
 }
