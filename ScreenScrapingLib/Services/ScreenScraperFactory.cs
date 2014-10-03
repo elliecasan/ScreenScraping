@@ -24,6 +24,21 @@ namespace ScreenScrapingLib.Services
                 _screenScraperService = new AllaBolagScreenScraperService();
             }
 
+            switch (type)
+            {
+                case "eniro": _screenScraperService = new EniroScreenScraperService();
+                    break;
+
+                case "allabolag": _screenScraperService = new AllaBolagScreenScraperService();
+                    break;
+
+                case "hittase": _screenScraperService = new HittaSeScreenScraperService();
+                    break;
+
+                default:
+                    break;
+            }
+
             return _screenScraperService;
         }
     }

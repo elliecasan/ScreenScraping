@@ -14,6 +14,7 @@ namespace ScreenScraping.Models.Home
             DropDownItems = new List<SelectListItem>();
             DropDownItems.Add(new SelectListItem { Text="Alla Bolag", Value="allabolag" });
             DropDownItems.Add(new SelectListItem { Text = "Eniro", Value="eniro" });
+            DropDownItems.Add(new SelectListItem { Text = "Hitta.se", Value = "hittase" });
         }
 
         [Required(ErrorMessage = "Enter correct value")]
