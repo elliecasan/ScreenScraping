@@ -1,27 +1,21 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Linq;
-using System.Net;
 using System.Text;
 using System.Threading.Tasks;
-using System.Web;
 using HtmlAgilityPack;
 
 namespace ScreenScrapingLib.Services
 {
-    public class HittaSeScreenScraperService : IScreenScraperService
+    public class HittaSeScrenScraperService:IScreenScraperService
     {
         public string GetCompanyNameByOrgNr(long orgNr)
         {
             HtmlWeb htmlWeb = new HtmlWeb();
             string url = "http://www.hitta.se/sök?vad=" + orgNr;
             HtmlDocument htmlDocument = htmlWeb.Load(url);
-<<<<<<< HEAD
-            
-=======
 
->>>>>>> 0fe9807b3031bc82f7c5578d32bc518fd5aeebb7
+
             var findclasses = htmlDocument.DocumentNode.Descendants("h2").Where(d =>
                                 d.Attributes.Contains("class") && d.Attributes["class"].Value.Contains("legalname")).ToList();
 

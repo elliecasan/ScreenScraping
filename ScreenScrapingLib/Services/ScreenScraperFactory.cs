@@ -14,7 +14,7 @@
                 case "allabolag": screenScraperService = new AllaBolagScreenScraperService();
                     break;
 
-                case "hittase": screenScraperService = new HittaSeScreenScraperService();
+                case "hittase": screenScraperService = new HittaSeScrenScraperService();
                     break;
 
                 case "upplysning": screenScraperService = new UpplysningScreenScraperService();
