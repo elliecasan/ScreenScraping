@@ -6,6 +6,7 @@ using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using System.Web;
+using HtmlAgilityPack;
 
 namespace ScreenScrapingLib.Services
 {
@@ -13,21 +14,14 @@ namespace ScreenScrapingLib.Services
     {
         public string GetCompanyNameByOrgNr(long orgNr)
         {
+            HtmlWeb htmlWeb = new HtmlWeb();
             string url = "http://www.hitta.se/sök?vad=" + orgNr;
-            url = HttpUtility.UrlEncode(url);
-            WebRequest request = WebRequest.Create(url);
-            WebResponse response = request.GetResponse();
-            Stream stream = response.GetResponseStream();
-            StreamReader reader = new StreamReader(stream);
-            string result = reader.ReadToEnd();
-            stream.Dispose();
-            reader.Dispose();
+            HtmlDocument htmlDocument = htmlWeb.Load(url);
 
-            int firstChar = result.IndexOf("legalname\">");
-            string Name = result.Substring(firstChar);
-            int lastChar = Name.IndexOf("</h2>");
-            Name = Name.Substring(0, lastChar);
+            var findclasses = htmlDocument.DocumentNode.Descendants("h2").Where(d =>
+                                d.Attributes.Contains("class") && d.Attributes["class"].Value.Contains("legalname")).ToList();
 
+            string Name = findclasses[0].InnerHtml;
             return Name;
         }
     }
