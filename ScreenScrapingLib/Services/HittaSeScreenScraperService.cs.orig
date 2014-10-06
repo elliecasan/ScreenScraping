@@ -6,8 +6,13 @@ using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using System.Web;
+<<<<<<< HEAD
+using ScreenScrapingLib.Services;
 using HtmlAgilityPack;
 
+=======
+using HtmlAgilityPack;
+>>>>>>> 24f3ead30b3557473513aef43ee9c7475c4bad7f
 
 namespace ScreenScrapingLib.Services
 {
@@ -16,11 +21,10 @@ namespace ScreenScrapingLib.Services
     {
         public string GetCompanyNameByOrgNr(long orgNr)
         {
-            HtmlWeb htmlWeb = new HtmlWeb();
+<<<<<<< HEAD
             
-            var findclasses = htmlDocument.DocumentNode.Descendants("h2").Where(d =>
-                                d.Attributes.Contains("class") && d.Attributes["class"].Value.Contains("legalname")).ToList();
             
+            HtmlWeb htmlweb= new HtmlWeb();
 
             var url = htmlweb.Load("http://www.hitta.se/sök?vad="+ orgNr);
 
@@ -43,6 +47,17 @@ namespace ScreenScrapingLib.Services
             //Name = Name.Substring(0, lastChar);
 
             return null;
+=======
+            HtmlWeb htmlWeb = new HtmlWeb();
+            string url = "http://www.hitta.se/sök?vad=" + orgNr;
+            HtmlDocument htmlDocument = htmlWeb.Load(url);
+
+            var findclasses = htmlDocument.DocumentNode.Descendants("h2").Where(d =>
+                                d.Attributes.Contains("class") && d.Attributes["class"].Value.Contains("legalname")).ToList();
+
+            string Name = findclasses[0].InnerHtml;
+            return Name;
+>>>>>>> 24f3ead30b3557473513aef43ee9c7475c4bad7f
         }
     }
 }
