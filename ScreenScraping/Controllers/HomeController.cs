@@ -24,7 +24,7 @@ namespace ScreenScraping.Controllers
         public ActionResult Index(string message)
         {
             var viewModel = new IndexViewModel();
-
+            viewModel.ORGNumber = 5565995239;
             if (!string.IsNullOrEmpty(message))
                 viewModel.CompanyName = message;
             
