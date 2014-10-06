@@ -9,32 +9,16 @@ using System.Web;
 
 namespace ScreenScrapingLib.Services
 {
-    public class UpplysningScreenScraperService : IScreenScraperService
+    public class UpplysningScreenScraperService : CompanyBase
     {
-        public string GetCompanyNameByOrgNr(long orgNr)
+        public override string ScrapeUrl
         {
-            string url = "http://www.upplysning.se/" + orgNr;
-            //url = HttpUtility.UrlEncode(url);
+            get { return "http://www.upplysning.se/{0}"; }
+        }
 
-            if (url == null) return null;
-
-            WebRequest request = WebRequest.Create(url);
-            WebResponse response = request.GetResponse();
-            Stream stream = response.GetResponseStream();
-
-            if (stream == null) return null;
-
-            var reader = new StreamReader(stream);
-            string result = reader.ReadToEnd();
-            stream.Dispose();
-            reader.Dispose();
-
-            int firstChar = result.IndexOf("<title") + 7;
-            string Name = result.Substring(firstChar);
-            int lastChar = Name.IndexOf("</title>");
-            Name = Name.Substring(0, lastChar);
-
-            return Name;
+        public override string xPath
+        {
+            get { return @"/html/head/title"; }
         }
     }
 }

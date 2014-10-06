@@ -1,4 +1,5 @@
-﻿using System.Web.Mvc;
+﻿using System.Linq;
+using System.Web.Mvc;
 using ScreenScraping.Models.Home;
 using ScreenScrapingLib.Services;
 
@@ -35,7 +36,14 @@ namespace ScreenScraping.Controllers
 
             var name = service.GetCompanyNameByOrgNr(model.ORGNumber);
 
-            return RedirectToAction("Index", "Home", new {message = name});
+            var company = model.DropDownItems.FirstOrDefault(c => c.Value == model.SelectedListItem);
+            var companyName = string.Empty;
+            if (company != null)
+            {
+                companyName = company.Text + ": ";
+            }
+
+            return RedirectToAction("Index", "Home", new {message = companyName + name});
         }
 
         
