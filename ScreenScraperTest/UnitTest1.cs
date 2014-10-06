@@ -24,6 +24,7 @@ namespace ScreenScraperTest
             stopWatch.Reset();
 
             stopWatch.Start();
+
             var tasks = new[]
             {
                 Task.Factory.StartNew(UnitTest1.Find_Company_AllaBolag_By_OrgNr),

@@ -7,20 +7,16 @@ using HtmlAgilityPack;
 
 namespace ScreenScrapingLib.Services
 {
-    public class HittaSeScrenScraperService:IScreenScraperService
+    public class HittaSeScrenScraperService:CompanyBase
     {
-        public string GetCompanyNameByOrgNr(long orgNr)
+        public override string ScrapeUrl
         {
-            HtmlWeb htmlWeb = new HtmlWeb();
-            string url = "http://www.hitta.se/sök?vad=" + orgNr;
-            HtmlDocument htmlDocument = htmlWeb.Load(url);
+            get { return "http://www.hitta.se/sök?vad={0}"; }
+        }
 
-
-            var findclasses = htmlDocument.DocumentNode.Descendants("h2").Where(d =>
-                                d.Attributes.Contains("class") && d.Attributes["class"].Value.Contains("legalname")).ToList();
-
-            string Name = findclasses[0].InnerHtml;
-            return Name;
+        public override string xPath
+        {
+            get { return @"id('company-financials')/h2"; }
         }
     }
 }
