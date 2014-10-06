@@ -17,7 +17,6 @@ namespace ScreenScrapingLib.Services
             HtmlWeb htmlWeb = new HtmlWeb();
             string url = "http://www.hitta.se/sök?vad=" + orgNr;
             HtmlDocument htmlDocument = htmlWeb.Load(url);
-
             
             var findclasses = htmlDocument.DocumentNode.Descendants("h2").Where(d =>
                                 d.Attributes.Contains("class") && d.Attributes["class"].Value.Contains("legalname")).ToList();       

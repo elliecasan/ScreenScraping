@@ -37,5 +37,21 @@ namespace ScreenScraperTest
             //ASSERT
             Assert.AreEqual(company, result);
         }
+
+        [TestMethod]
+        public void Find_Company_HittaSe_By_OrgNr()
+        {
+            //ARRANGE
+            long orgNr = 5565995239;
+            string company = "Mattias Asplund AB";
+
+            IScreenScraperService screenScraperService = new HittaSeScreenScraperService();
+
+            //ACT
+            var result = screenScraperService.GetCompanyNameByOrgNr(orgNr);
+
+            //ASSERT
+            Assert.AreEqual(company, result);
+        }
     }
 }
