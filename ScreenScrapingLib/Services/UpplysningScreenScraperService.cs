@@ -6,24 +6,22 @@ using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using System.Web;
-using HtmlAgilityPack;
 
 namespace ScreenScrapingLib.Services
 {
-    public class HittaSeScreenScraperService : IScreenScraperService
+    class UpplysningScreenScraperService : IScreenScraperService
     {
         public string GetCompanyNameByOrgNr(long orgNr)
         {
-            HtmlWeb htmlWeb = new HtmlWeb();
-            string url = "http://www.hitta.se/sök?vad=" + orgNr;
-            HtmlDocument htmlDocument = htmlWeb.Load(url);
+            string url = "http://www.upplysning.se/" + orgNr;
+            //url = HttpUtility.UrlEncode(url);
 
             if (url == null) return null;
 
             WebRequest request = WebRequest.Create(url);
             WebResponse response = request.GetResponse();
             Stream stream = response.GetResponseStream();
-            StreamReader reader = new StreamReader(stream);
+
             if (stream == null) return null;
 
             var reader = new StreamReader(stream);
@@ -31,15 +29,11 @@ namespace ScreenScrapingLib.Services
             stream.Dispose();
             reader.Dispose();
 
-
-            var findclasses = htmlDocument.DocumentNode.Descendants("h2").Where(d =>
-                                d.Attributes.Contains("class") && d.Attributes["class"].Value.Contains("legalname")).ToList();
-            int firstChar = result.IndexOf("legalname\">");
+            int firstChar = result.IndexOf("<title") + 7;
             string Name = result.Substring(firstChar);
-            int lastChar = Name.IndexOf("</h2>");
+            int lastChar = Name.IndexOf("</title>");
             Name = Name.Substring(0, lastChar);
 
-            string Name = findclasses[0].InnerHtml;
             return Name;
         }
     }

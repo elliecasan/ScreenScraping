@@ -52,6 +52,7 @@
     <Compile Include="Services\IScreenScraperService.cs" />
     <Compile Include="Services\AllaBolagScreenScraperService.cs" />
     <Compile Include="Services\ScreenScraperFactory.cs" />
+    <Compile Include="Services\UpplysningScreenScraperService.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

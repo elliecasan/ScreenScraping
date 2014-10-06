@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 
 namespace ScreenScraping.Models.Home
@@ -11,10 +8,13 @@ namespace ScreenScraping.Models.Home
     {
         public IndexViewModel()
         {
-            DropDownItems = new List<SelectListItem>();
-            DropDownItems.Add(new SelectListItem { Text="Alla Bolag", Value="allabolag" });
-            DropDownItems.Add(new SelectListItem { Text = "Eniro", Value="eniro" });
-            DropDownItems.Add(new SelectListItem { Text = "Hitta.se", Value = "hittase" });
+            DropDownItems = new List<SelectListItem>
+            {
+                new SelectListItem {Text = "Alla Bolag", Value = "allabolag"},
+                new SelectListItem {Text = "Eniro", Value = "eniro"},
+                new SelectListItem {Text = "Hitta.se", Value = "hittase"},
+                new SelectListItem {Text = "Upplysning.se", Value = "upplysning"}
+            };
         }
 
         [Required(ErrorMessage = "Enter correct value")]
