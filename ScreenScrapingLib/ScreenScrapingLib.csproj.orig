@@ -31,7 +31,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+<<<<<<< HEAD
     <Reference Include="HtmlAgilityPack">
+=======
+    <Reference Include="HtmlAgilityPack, Version=1.4.9.0, Culture=neutral, PublicKeyToken=bd319b19eaf3b43a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+>>>>>>> 24f3ead30b3557473513aef43ee9c7475c4bad7f
       <HintPath>..\packages\HtmlAgilityPack.1.4.9\lib\Net45\HtmlAgilityPack.dll</HintPath>
     </Reference>
     <Reference Include="System" />
@@ -46,11 +51,11 @@
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\EniroScreenScraperService.cs" />
+    <Compile Include="Services\HittaSeScreenScraperService.cs" />
     <Compile Include="Services\IScreenScraperFactory.cs" />
     <Compile Include="Services\IScreenScraperService.cs" />
     <Compile Include="Services\AllaBolagScreenScraperService.cs" />
     <Compile Include="Services\ScreenScraperFactory.cs" />
-    <Compile Include="Services\UpplysningScreenScraperService.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
