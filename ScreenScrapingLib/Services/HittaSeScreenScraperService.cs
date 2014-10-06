@@ -1,6 +1,10 @@
-﻿using System.IO;
+﻿using System;
+using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Net;
+using System.Text;
+using System.Threading.Tasks;
 using System.Web;
 using HtmlAgilityPack;
 
@@ -12,7 +16,6 @@ namespace ScreenScrapingLib.Services
         {
             HtmlWeb htmlWeb = new HtmlWeb();
             string url = "http://www.hitta.se/sök?vad=" + orgNr;
-
             HtmlDocument htmlDocument = htmlWeb.Load(url);
 
             var findclasses = htmlDocument.DocumentNode.Descendants("h2").Where(d =>
