@@ -48,6 +48,7 @@
     <Compile Include="Services\IScreenScraperService.cs" />
     <Compile Include="Services\AllaBolagScreenScraperService.cs" />
     <Compile Include="Services\ScreenScraperFactory.cs" />
+    <Compile Include="Services\UpplysningScreenScraperService.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

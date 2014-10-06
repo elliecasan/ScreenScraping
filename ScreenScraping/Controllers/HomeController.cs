@@ -1,11 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Net;
-using System.Web;
-using System.Web.Mvc;
-using System.Web.Routing;
+﻿using System.Web.Mvc;
 using ScreenScraping.Models.Home;
 using ScreenScrapingLib.Services;
 
@@ -16,9 +9,9 @@ namespace ScreenScraping.Controllers
     {
         private readonly IScreenScraperFactory _screenScraperFactory;
 
-        public HomeController(IScreenScraperFactory ScreenScraperFactory)
+        public HomeController(IScreenScraperFactory screenScraperFactory)
         {
-            _screenScraperFactory = ScreenScraperFactory;
+            _screenScraperFactory = screenScraperFactory;
         }
 
         public ActionResult Index(string message)
