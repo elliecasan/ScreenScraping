@@ -9,7 +9,7 @@ using System.Web;
 
 namespace ScreenScrapingLib.Services
 {
-    class UpplysningScreenScraperService : IScreenScraperService
+    public class UpplysningScreenScraperService : IScreenScraperService
     {
         public string GetCompanyNameByOrgNr(long orgNr)
         {

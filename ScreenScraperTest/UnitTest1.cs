@@ -53,5 +53,21 @@ namespace ScreenScraperTest
             //ASSERT
             Assert.AreEqual(company, result);
         }
+        
+                [TestMethod]
+        public void Find_Company_Upplysning_By_OrgNr()
+        {
+            //ARRANGE
+            long orgNr = 5565995239;
+            string company = "Mattias Asplund Aktiebolag";
+
+            IScreenScraperService screenScraperService = new UpplysningScreenScraperService();
+
+            //ACT
+            var result = screenScraperService.GetCompanyNameByOrgNr(orgNr);
+
+            //ASSERT
+            Assert.AreEqual(company, result);
+        }
     }
 }
