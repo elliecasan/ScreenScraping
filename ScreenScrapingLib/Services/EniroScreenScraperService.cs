@@ -3,32 +3,19 @@ using System.Net;
 
 namespace ScreenScrapingLib.Services
 {
-    public class EniroScreenScraperService : IScreenScraperService
+    public class EniroScreenScraperService : CompanyBase
     {
-        public string GetCompanyNameByOrgNr(long orgNr)
+
+           public override string ScrapeUrl
         {
-            string url = "http://gulasidorna.eniro.se/hitta:" + orgNr;
-            WebRequest request = WebRequest.Create(url);
-            WebResponse response = request.GetResponse();
-            Stream stream = response.GetResponseStream();
-            StreamReader reader = new StreamReader(stream);
-            string result = reader.ReadToEnd();
-            stream.Dispose();
-            reader.Dispose();
-
-
-            int firstChar = result.IndexOf("name_click");
-
-            string name = result.Substring(firstChar);
-
-            firstChar = name.IndexOf("\">");
-
-            name = name.Substring(firstChar + 2);
-
-            int lastChar = name.IndexOf("</a>");
-            name = name.Substring(0, lastChar);
-
-            return name;
+            get { return "http://gulasidorna.eniro.se/hitta:{0}"; }
         }
+
+        public override string xPath
+        {
+            get { return @"id('hit-list')/li/article/header/div[2]/h2/span/a"; }
+       
+        }
+    
     }
 }
